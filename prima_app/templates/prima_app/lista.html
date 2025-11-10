@@ -1,30 +1,7 @@
-!
-<!DOCTYPE html>
-<html lang="it">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista</title>
-    <style>
-        body{
-            background-color: black;
-        }
-        p{
-            font-size: 120px;
-            text-align: center;
-            color: blueviolet;
-            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-        }
-        li{
-            font-size: 90px;
-            text-align: center;
-            color: blue;
-        }
-    </style>
-</head>
-
+{% extends "base.html" %}
+{%block title%}{{block.super}} | Lista{%endblock title%}
+{%block content%}
 <body>
     <p>The Listone</p>
     <ol>
@@ -33,5 +10,4 @@
         <li>Tercero</li>
     </ol>
 </body>
-
-</html>
+{%endblock content%}

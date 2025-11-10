@@ -1,29 +1,7 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChiSiamo</title>
-    <style>
-        body{
-            background-color: black;
-        }
-        p{
-            font-size: 120px;
-            text-align: center;
-            color: blueviolet;
-            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-        }
-        h2{
-            text-align: center;
-            color: blue;
-            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-        }
-    </style>
-</head>
-<body>
-    <p>Chi Siamo</p>
-    <h2>ChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamo<br>ChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamo<br>ChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamo</h2>
-</body>
-</html>
+{% extends "base.html" %}
+{%block title%}{{block.super}} | Chi Siamo{%endblock title%}
+{%block content%}
+<p>Chi Siamo</p>
+<h2>ChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamo<br>ChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamo<br>ChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamoChiSiamo
+</h2>
+{%endblock content%}
