@@ -1,0 +1,10 @@
+
+{% load static %}
+
+{% block title %}Prova Pratica{% endblock title %}</title>
+    {%block content%}
+    <ol>
+        <li><a href="{% url 'prova_pratica_1:diff'%}">Diff</a></li>
+        <li><a href="{% url 'prova_pratica_1:pari'%}">Pari</a></li>
+    </ol>
+    {%endblock content%}

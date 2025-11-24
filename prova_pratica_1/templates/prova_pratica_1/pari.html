@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{%block title%}{{block.super}} | Diff{%endblock title%}
+{%block content%}
+
+    {% for x in numeri %}
+    {% if x|divisibleby:2 %}
+    <i style="color:green">{{x}}</i><br>
+        {%else%}
+        <i style="color:red">{{x}}</i><br>
+        {% endif %}
+    {% endfor %}
+    <br>
+    <p>numeri pari= {{contatore_pari}}<br>
+    numeri dispari = {{contatore_dispari}}</p>
+{%endblock content%}

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{%block title%}{{block.super}} | Diff{%endblock title%}
+{%block content%}
+    <b>var1 = {{ var1 }}</b> <br />
+    <b>var2 = {{ var2 }}</b> <br />
+
+    {% if var1 < var2 %} 
+    <p><i>Il numero maggiore è <i style="color:red">{{ var2 }}</i></p>
+    <p><i>Il numero minore è <i style="color:green">{{ var1 }}</i></p>
+
+        {% elif var1 > var2 %}
+        <p>Il numero maggiore è <i style="color:red">{{ var1 }} </i></p>
+        <p><i>Il numero minore è <i style="color:green">{{ var2 }}</i></p>
+
+        {% elif var1 ==  var2 %}
+        <p><i>I numeri sono uguali</i></p>
+        
+        {%else %}
+        <p>numeri inseriti errati</p>
+        {% endif %}
+{%endblock content%}
+
