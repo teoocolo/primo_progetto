@@ -84,6 +84,29 @@ def queryBase(request):
     #tutti gli articoli che contengono una certa parola nel titolo
     articoli_parola=Articolo.objects.filter(titolo__icontains='articolo')
 
+    #Articoli pubblicati in nun certo mese di un anno spcifico
+    articoli_mese_anno=Articolo.objects.filter(data__month=1,data__year=2023)
+
+    #Giornalisti con almeno un articolo con più di 100 visualizzazioni
+    giornalisti_con_articoli_popolari=Giornalista.objects.filter(articoli__visualizzazioni__gt=100).distinct()
+
+    data=datetime.date(1990,1,1)
+    visualizzioni=50
+
+    #scrivi quali articoli vengono selezionati
+    articoli_con_and=Articolo.objects.filter(giornalista__anno_di_nascita__gt=data, visualizzazioni__gte=visualizzioni)
+
+    #per mettere in or le condizioni utilizzare Q
+    from django.db.models import Q
+    #scrivi quali articoli vengono selezionati
+    articoli_con_or=Articolo.objects.filter(Q(giornalista__anno_di_nascita__gt=data) | Q(visualizzazioni__lte=visualizzioni))
+
+    #per il not utilizzare Q
+    #scrivi quali articoli vengono selezionati
+    articoli_con_not=Articolo.objects.filter(~Q(giornalista__anno_di_nascita__gt=data))
+    #oppure con il metodo exclude
+    articoli_con_not=Articolo.objects.exclude(giornalista__anno_di_nascita__lt=data)
+
     context={
         'articoli_cognome':articoli_cognome,
         'numero_totale_articoli':numero_totale_articoli,
@@ -100,6 +123,11 @@ def queryBase(request):
         'ultimi':ultimi,
         'articoli_minime_visualizzazioni':articoli_minime_visualizzazioni,
         'articoli_parola':articoli_parola,
+        'articoli_mese_anno':articoli_mese_anno,
+        'giornalisti_con_articoli_popolari':giornalisti_con_articoli_popolari,
+        'articoli_con_and':articoli_con_and,
+        'articoli_con_or':articoli_con_or,
+        'articoli_con_not':articoli_con_not,
     }
 
     return render(request, "query.html" ,context)

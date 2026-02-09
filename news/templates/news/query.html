@@ -133,7 +133,7 @@
       <hr />
     {% endfor %}
   </ul>
-  <h2>Tutti gli articoli che contengono la parola "articolo" nel titolo:</h2>
+  <h2>15. Tutti gli articoli che contengono la parola "articolo" nel titolo:</h2>
   <ul>
     {% for articolo in articoli_parola %}
       <li>{{ articolo.titolo }}</li>
@@ -144,4 +144,62 @@
       <li>{{ articolo.data }}</li>
       <hr />
     {% endfor %}
+  </ul>
+  <h2>16. Articoli pubblicati a gennaio 2023:</h2>
+  <ul>
+    {% for articolo in articoli_mese_anno %}
+      <li>{{ articolo.titolo }}</li>
+      <li>{{ articolo.giornalista.nome }}</li>
+      <li>{{ articolo.giornalista.cognome }}</li>
+      <li>{{ articolo.contenuto }}</li>
+      <li>{{ articolo.visualizzazioni }}</li>
+      <li>{{ articolo.data }}</li>
+      <hr />
+    {% endfor %}
+  </ul>
+  <h2>17. Giornalisti con almeno 1 articolo con più di 100 visualizzazioni:</h2>
+  <ul>
+    {% for giornalista in giornalisti_con_articoli_popolari %}
+      <li>{{ giornalista.nome }}</li>
+      <li>{{ giornalista.cognome }}</li>
+      <li>{{ giornalista.anno_di_nascita }}</li>
+      <hr />
+    {% endfor %}
+  </ul>
+  <h2>18. Articoli di giornalisti nati il 01/01/1990 con 50 visualizzazioni</h2>
+  <ul>
+    {% for articolo in articoli_con_and %}
+      <li>{{ articolo.titolo }}</li>
+      <li>{{ articolo.giornalista.nome }}</li>
+      <li>{{ articolo.giornalista.cognome }}</li>
+      <li>{{ articolo.contenuto }}</li>
+      <li>{{ articolo.visualizzazioni }}</li>
+      <li>{{ articolo.data }}</li>
+      <hr />
+    {% endfor %}
+  </ul>
+  <h2>19. Articoli di giornalisti nati il 01/01/1990 o con 50 visualizzazioni</h2>
+  <ul>
+    {% for articolo in articoli_con_or %}
+      <li>{{ articolo.titolo }}</li>
+      <li>{{ articolo.giornalista.nome }}</li>
+      <li>{{ articolo.giornalista.cognome }}</li>
+      <li>{{ articolo.giornalista.anno_di_nascita }}</li>
+      <li>{{ articolo.contenuto }}</li>
+      <li>{{ articolo.visualizzazioni }}</li>
+      <hr />
+    {% endfor %}
+  </ul>
+  <h2>20. Articoli con giornalisti non nati il 01/01/1990: </h2>
+  <ul>
+    {% for articolo in articoli_con_not %}
+      <li>{{ articolo.titolo }}</li>
+      <li>{{ articolo.giornalista.nome }}</li>
+      <li>{{ articolo.giornalista.cognome }}</li>
+      <li>{{ articolo.giornalista.anno_di_nascita }}</li>
+      <li>{{ articolo.contenuto }}</li>
+      <li>{{ articolo.visualizzazioni }}</li>
+      <hr />
+    {% endfor %}
+  </ul>
 {% endblock %}
