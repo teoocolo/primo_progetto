@@ -1,0 +1,147 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Query Base
+{% endblock %}
+{% block content %}
+  <h2>1. Articoli scritti da Colombo:</h2>
+  <ul>
+    {% for articolo in articoli_cognome %}
+      <li>{{ articolo.titolo }}</li>
+      <li>{{ articolo.contenuto }}</li>
+      <hr />
+    {% endfor %}
+  </ul>
+  <h2>2. Numero totale di articoli:</h2>
+  <ul>
+    <li>{{ numero_totale_articoli }}</li>
+    <hr />
+  </ul>
+  <h2>3. Numero totale di articoli del Giornalista 1:</h2>
+  <ul>
+    <li>{{ numero_articoli_giornalista_1 }}</li>
+    <hr />
+  </ul>
+  <h2>4. Articoli in ordine decrescente di visualizzazioni:</h2>
+  <ol>
+    {% for articolo in articoli_ordinati %}
+      <li>{{ articolo.titolo }}</li>
+      <ul>
+        <li>{{ articolo.giornalista.nome }}</li>
+        <li>{{ articolo.giornalista.cognome }}</li>
+        <li>{{ articolo.contenuto }}</li>
+        <li>{{ articolo.visualizzazioni }}</li>
+      </ul>
+      <hr />
+    {% endfor %}
+  </ol>
+  <h2>5. Tutti gli articoli senza visualizzazioni</h2>
+  <ul>
+    {% for articolo in articoli_senza_visualizzazioni %}
+      <li>{{ articolo.giornalista.nome }}</li>
+      <li>{{ articolo.giornalista.cognome }}</li>
+      <li>{{ articolo.contenuto }}</li>
+      <li>{{ articolo.visualizzazioni }}</li>
+      <hr />
+    {% endfor %}
+  </ul>
+  <h2>6. Articolo più visualizzato:</h2>
+  <ul>
+    <li>{{ articolo_piu_visualizzato.giornalista.nome }}</li>
+    <li>{{ articolo_piu_visualizzato.giornalista.cognome }}</li>
+    <li>{{ articolo_piu_visualizzato.contenuto }}</li>
+    <li>{{ articolo_piu_visualizzato.visualizzazioni }}</li>
+    <hr />
+  </ul>
+  <h2>7. Tutti i giornalisti nati dopo 01/01/1990:</h2>
+  <ul>
+    {% for giornalista in giornalisti_data %}
+      <li>{{ giornalista.nome }}</li>
+      <li>{{ giornalista.cognome }}</li>
+      <li>{{ giornalista.anno_di_nascita }}</li>
+      <hr />
+    {% endfor %}
+  </ul>
+  <h2>8. Tutti gli articoli pubblicati il 01/01/2023:</h2>
+  <ul>
+    {% for articolo in articoli_del_giorno %}
+      <li>{{ articolo.giornalista.nome }}</li>
+      <li>{{ articolo.giornalista.cognome }}</li>
+      <li>{{ articolo.contenuto }}</li>
+      <li>{{ articolo.visualizzazioni }}</li>
+      <li>{{ articolo.data }}</li>
+      <hr />
+    {% endfor %}
+  </ul>
+  <h2>9. Tutti gli articoli pubblicati tra il 01/01/2023 e il 31/12/2023:</h2>
+  <ul>
+    {% for articolo in articoli_periodo %}
+      <li>{{ articolo.giornalista.nome }}</li>
+      <li>{{ articolo.giornalista.cognome }}</li>
+      <li>{{ articolo.contenuto }}</li>
+      <li>{{ articolo.visualizzazioni }}</li>
+      <li>{{ articolo.data }}</li>
+      <hr />
+    {% endfor %}
+  </ul>
+  <h2>10. Articoli scritti da giornalisti nati prima del 1980:</h2>
+  <ul>
+    {% for articolo in articoli_giornalisti %}
+      <li>{{ articolo.giornalista.nome }}</li>
+      <li>{{ articolo.giornalista.cognome }}</li>
+      <li>{{ articolo.giornalista.anno_di_nascita }}</li>
+      <li>{{ articolo.contenuto }}</li>
+      <li>{{ articolo.visualizzazioni }}</li>
+      <hr />
+    {% endfor %}
+  </ul>
+  <h2>11. Giornalista più giovane:</h2>
+  <ul>
+    <li>{{ giornalista_giovane }}</li>
+    <li>{{ giornalista_giovane.anno_di_nascita }}</li>
+    <hr />
+  </ul>
+  <h2>12. Giornalista più anziano:</h2>
+  <ul>
+    <li>{{ giornalista_vecchio }}</li>
+    <li>{{ giornalista_vecchio.anno_di_nascita }}</li>
+    <hr />
+  </ul>
+  <h2>13. Ultimi 5 articoli pubblicati:</h2>
+  <ol>
+    {% for articolo in ultimi %}
+      <li>{{ articolo.titolo }}</li>
+      <ul>
+        <li>{{ articolo.giornalista.nome }}</li>
+        <li>{{ articolo.giornalista.cognome }}</li>
+        <li>{{ articolo.contenuto }}</li>
+        <li>{{ articolo.visualizzazioni }}</li>
+        <li>{{ articolo.data }}</li>
+        <hr />
+      </ul>
+    {% endfor %}
+  </ol>
+  <h2>14. Tutti gli articoli con almeno 100 visualizzazioni:</h2>
+  <ul>
+    {% for articolo in articoli_minime_visualizzazioni %}
+      <li>{{ articolo.titolo }}</li>
+      <li>{{ articolo.giornalista.nome }}</li>
+      <li>{{ articolo.giornalista.cognome }}</li>
+      <li>{{ articolo.contenuto }}</li>
+      <li>{{ articolo.visualizzazioni }}</li>
+      <li>{{ articolo.data }}</li>
+      <hr />
+    {% endfor %}
+  </ul>
+  <h2>Tutti gli articoli che contengono la parola "articolo" nel titolo:</h2>
+  <ul>
+    {% for articolo in articoli_parola %}
+      <li>{{ articolo.titolo }}</li>
+      <li>{{ articolo.giornalista.nome }}</li>
+      <li>{{ articolo.giornalista.cognome }}</li>
+      <li>{{ articolo.contenuto }}</li>
+      <li>{{ articolo.visualizzazioni }}</li>
+      <li>{{ articolo.data }}</li>
+      <hr />
+    {% endfor %}
+{% endblock %}
