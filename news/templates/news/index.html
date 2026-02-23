@@ -3,7 +3,11 @@
 {% block title %}Index News{% endblock title %}</title>
     {%block content%}
     <ol>
-        <li><a href="{% url 'news:homeview'%}">Homepage</a></li>
-        <li><a href="{% url 'news:lista_articoli' 1%}">Articolo Detail</a></li>
+        <li><a href="{% url 'index_root'%}">Index Root</a></li>
+        <li><a href="{% url 'news:homepage'%}">Home News</a></li>
+        <li><a href="{% url 'news:lista_articoli'%}">Articoli</a></li>
+        <li><a href="{% url 'news:lista_giornalisti'%}">Giornalisti</a></li>
+        <li><a href="{% url 'news:query'%}">Query</a></li>
+
     </ol>
 {%endblock content%}

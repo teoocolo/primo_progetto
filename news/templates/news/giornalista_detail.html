@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  {{ articolo.giornalista.nome }} {{ articolo.giornalista.cognome }}
+{% endblock %}
+
+{% block content %}
+  <h1>Dettagli del Giornalista: {{ articolo.giornalista }}</h1>
+
+  {# Usa 'articolo' (o come lo hai chiamato nella view) invece di 'a' #}
+  <h3>Nato il: {{ giornalista.anno_di_nascita }}</h3>
+
+  <hr />  
+
+  <p>Tutti i suoi articoli e visualizzazioni:</p>
+  <ul>
+    {% for articolo in articoli %}
+      <li>
+        <a href="{% url 'news:lista_articoli' articolo.id %}">{{ articolo.titolo }}</a>
+        - Visualizzazioni: {{ articolo.visualizzazioni }}
+      </li>
+    {% empty %}
+      <li>Nessun articolo trovato per questo giornalista.</li>
+    {% endfor %}
+  </ul> 
+
+  <p>
+    <strong>Vai alla lista completa:</strong>
+    {# Corretto il nome della variabile e aggiunte le virgolette #}
+    <a href="{% url 'news:lista_articoli' giornalista.id %}">
+      Visualizza articoli di {{ giornalista.nome }}
+    </a>
+  </p>
+{% endblock %}

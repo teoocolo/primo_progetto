@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}
+  Lista
+{% endblock %}
+
+{% block content %}
+  <h4>Giornalisti:</h4>
+  {% for giornalista in giornalisti %}
+    <p>
+      <strong>Nome:</strong> {{ giornalista.nome }}
+    </p>
+    <p>
+      <strong>Cognome:</strong> {{ giornalista.cognome }}
+    </p>
+    <hr />
+  {% endfor %}
+{% endblock %}
