@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load crispy_form_tags %}
+{%block head_title%}{{block.super}} | Contatti{%endblock head_title%}
+{% block content %}
+<div class="container">
+    <h1>Compila il form di contatto, ti risponderemo quanto prima!</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-danger" value="INVIA">Invia</button>
+    </form>
+</div>
+{% endblock content %}
