@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}{{ block.super }} | Max Min{% endblock title %}
+
+{% block content %}
+    <h1>Max e Min</h1>
+    <ul>
+        <li>Lo studente con il voto più alto è di: {{ max_studente }} con un voto di {{ max_voto }} nella materia {{ max_materia }}</li>
+        <li>Lo studente con il voto più basso è di: {{ min_studente }} con un voto di {{ min_voto }} nella materia {{ min_materia }}</li>
+    </ul>
+{% endblock content %}

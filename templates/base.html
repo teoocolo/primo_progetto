@@ -69,6 +69,18 @@
 
             </div>
           </li>
+
+          <li class="nav-item dropdown">
+            <!-- Dropdown prova pratica -->
+            <a class="nav-link dropdown-toggle" href="#" id="ProvaPraticaDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Voti</a>
+            <div class="dropdown-menu" aria-labelledby="ProvaPraticaDropdownMenuLink">
+              <a class="dropdown-item" href="{% url 'voti:index' %}">Index</a>
+              <a class="dropdown-item" href="{% url 'voti:materie' %}">Materie</a>
+              <a class="dropdown-item" href="{% url 'voti:voti' %}">Voti</a>
+              <a class="dropdown-item" href="{% url 'voti:media' %}">Media voti</a>
+              <a class="dropdown-item" href="{% url 'voti:max_min' %}">Max e Min</a>
+            </div>
+          </li>
         </ul>
       </div>
     </nav>
