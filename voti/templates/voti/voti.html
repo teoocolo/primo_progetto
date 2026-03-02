@@ -5,7 +5,13 @@
     <h1>Voti</h1>
     <ul>
         {% for studente, voti_studente in voti.items %}
-            <li>{{ studente }}: {{ voti_studente }}</li>
+            <li>{{ studente }}:</li>
+                <ul>
+                    {% for materia, voto, peso in voti_studente %}
+                        <li>{{ materia }}: {{ voto }} (peso: {{ peso }})</li>
+                    {% endfor %}
+                </ul>
+            </li>
         {% endfor %}
     </ul>
 {% endblock content %}

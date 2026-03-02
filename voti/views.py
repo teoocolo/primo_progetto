@@ -12,7 +12,7 @@ def index(request):
     
 def view_a(request):
     context={
-        "elenco_materie": materie,
+        "materie": materie,
     }
     return render(request, "voti/materie.html", context)    
 
@@ -44,7 +44,7 @@ def view_c(request):
 def view_d(request):
     for studente, valutazioni in voti.items():
         max=0
-        min=0
+        min=10
         materia_max=""
         materia_min=""
         studente_max=""
@@ -52,15 +52,19 @@ def view_d(request):
         for materia, voto, peso in valutazioni:
             if voto > max:
                 max = voto
+                studente_max = studente
+                materia_max = materia
             if voto < min:
                 min = voto
-        context={
-            "max": max,
-            "min": min,
-            "studente_max": studente_max,
-            "studente_min": studente_min,
-            "materia_max": materia_max,
-            "materia_min": materia_min
-        }
+                studente_min = studente
+                materia_min = materia
+    context={
+        "max": max,
+        "min": min,
+        "studente_max": studente_max,
+        "studente_min": studente_min,
+        "materia_max": materia_max,
+        "materia_min": materia_min
+    }
     return render(request, "voti/max_min.html", context)
 
