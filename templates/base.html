@@ -62,7 +62,11 @@
             <a class="nav-link dropdown-toggle" href="#" id="NewsDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">News</a>
             <div class="dropdown-menu" aria-labelledby="NewsDropdownMenuLink">
               <a class="dropdown-item" href="{% url 'news:index' %}">Index</a>
+              <a class="dropdown-item" href="{% url 'news:homepage'%}">Homepage</a>
               <a class="dropdown-item" href="{% url 'news:lista_articoli' %}">Articoli</a>
+              <a class="dropdown-item" href="{% url 'news:lista_giornalisti' %}">Giornalisti</a>
+              <a class="dropdown-item" href="{% url 'news:query' %}">Query</a>
+
             </div>
           </li>
         </ul>
