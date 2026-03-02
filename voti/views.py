@@ -42,29 +42,37 @@ def view_c(request):
     return render(request, "voti/media.html", context)
 
 def view_d(request):
-    for studente, valutazioni in voti.items():
-        max=0
-        min=10
-        materia_max=""
-        materia_min=""
-        studente_max=""
-        studente_min=""
-        for materia, voto, peso in valutazioni:
-            if voto > max:
-                max = voto
-                studente_max = studente
-                materia_max = materia
-            if voto < min:
-                min = voto
-                studente_min = studente
-                materia_min = materia
-    context={
-        "max": max,
-        "min": min,
-        "studente_max": studente_max,
-        "studente_min": studente_min,
-        "materia_max": materia_max,
-        "materia_min": materia_min
+    # 1. Troviamo i valori numerici min e max assoluti
+    tutti_i_voti = []
+    for lista in voti.values():
+        for item in lista:
+            tutti_i_voti.append(item[1]) # item[1] è il voto
+            
+    val_max = max(tutti_i_voti)
+    val_min = min(tutti_i_voti)
+
+    # 2. Troviamo CHI ha preso quei voti e in QUALI materie
+    # Usiamo set() per evitare duplicati, poi convertiamo in list()
+    studenti_max = set()
+    materie_max = set()
+    studenti_min = set()
+    materie_min = set()
+
+    for studente, lista_voti in voti.items():
+        for materia, voto, assenze in lista_voti:
+            if voto == val_max:
+                studenti_max.add(studente)
+                materie_max.add(materia)
+            if voto == val_min:
+                studenti_min.add(studente)
+                materie_min.add(materia)
+
+    context = {
+        'v_max': val_max,
+        'stud_max': list(studenti_max),
+        'mat_max': list(materie_max),
+        'v_min': val_min,
+        'stud_min': list(studenti_min),
+        'mat_min': list(materie_min),
     }
     return render(request, "voti/max_min.html", context)
-
