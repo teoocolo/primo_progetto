@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block head_title %}{{ block.super }} | Lista Contatti{% endblock head_title %}
+{% block content %}
+<div class="container">
+    <h1>Lista Contatti</h1>
+    <table class="table table-responsive table-striped">
+        <thead>
+            <tr>
+                {% if  request.user.is_authenticated %}
+                <td>Cancella</td>
+                <td>Modifica</td>
+                {% endif %} 
+                <th>Nome</th>
+                <th>Cognome</th>
+                <th>Email</th>
+                <th>Contenuto</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for contatto in contatti %}
+            <tr>
+                {% if  request.user.is_authenticated %}
+                <td><a href={%url 'forms_app:elimina_contatto' contatto.pk %}><i class="fas fa-eraser"></i></a></td>
+                <td><a href={%url 'forms_app:modifica_contatto' contatto.pk %}><i class="fas fa-edit"></i></a></td>
+                {% endif %}
+                <td>{{ contatto.nome }}</td>
+                <td>{{ contatto.cognome }}</td>
+                <td>{{ contatto.email }}</td>
+                <td>{{ contatto.contenuto }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4">Nessun contatto trovato.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock content %}
