@@ -1,9 +1,0 @@
-{% extends "base.html" %}
-{% block head_title %}{{ block.super }} | Lista Contatti{% endblock head_title %}
-{% block content %}
-    <ol>
-        <li><a href="{% url 'index_root'%}">Index Root</a></li>
-        <li><a href="{% url 'forms_app:lista_contatti'%}">Lista Contatti</a></li>
-        <li><a href="{% url 'forms_app:contatti'%}">Contattaci</a></li>
-    </ol>
-{% endblock content %}
