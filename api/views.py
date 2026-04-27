@@ -16,7 +16,7 @@ def todos_view(request):
         lista_todos = []
         messaggio_errore="Errore nella connessione all'API: " + str(e)
     
-    return render(request, 'todo.html',{
+    return render(request, 'todos.html',{
         'todos': lista_todos,
         'errore': messaggio_errore,
     })
